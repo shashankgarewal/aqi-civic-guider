@@ -1,0 +1,6 @@
+{
+  "name": "Civic Air Quality Briefing Studio",
+  "description": "AI-assisted air quality data normalization, CPCB reliability auditing, persona action planning, and multilingual citizen advisory studio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

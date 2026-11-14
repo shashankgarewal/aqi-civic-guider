@@ -1,0 +1,240 @@
+import type { CpcbRawRecord, GoogleAqResponse } from '../types/airQuality';
+
+export const DEFAULT_CPCB_API_KEY =
+  '579b464db66ec23bdd00000199769f201d7e4ba2781424ba988cc783';
+
+export const CPCB_PRESET_CITIES = [
+  'Delhi',
+  'Bhopal',
+  'Mumbai',
+  'Bengaluru',
+  'Lucknow',
+] as const;
+
+export const SAMPLE_CPCB_RECORDS: CpcbRawRecord[] = [
+  {
+    country: 'India',
+    state: 'Delhi',
+    city: 'Delhi',
+    station: 'Anand Vihar, Delhi - DPCC',
+    last_update: '13-11-2026 08:00:00',
+    latitude: '28.647622',
+    longitude: '77.315809',
+    pollutant_id: 'PM2.5',
+    pollutant_min: '248',
+    pollutant_max: '396',
+    pollutant_avg: '338',
+  },
+  {
+    country: 'India',
+    state: 'Delhi',
+    city: 'Delhi',
+    station: 'Anand Vihar, Delhi - DPCC',
+    last_update: '13-11-2026 08:00:00',
+    latitude: '28.647622',
+    longitude: '77.315809',
+    pollutant_id: 'PM10',
+    pollutant_min: '310',
+    pollutant_max: '462',
+    pollutant_avg: '412',
+  },
+  {
+    country: 'India',
+    state: 'Delhi',
+    city: 'Delhi',
+    station: 'Anand Vihar, Delhi - DPCC',
+    last_update: '13-11-2026 08:00:00',
+    latitude: '28.647622',
+    longitude: '77.315809',
+    pollutant_id: 'NO2',
+    pollutant_min: '68',
+    pollutant_max: '142',
+    pollutant_avg: '108',
+  },
+  {
+    country: 'India',
+    state: 'Delhi',
+    city: 'Delhi',
+    station: 'Anand Vihar, Delhi - DPCC',
+    last_update: '13-11-2026 08:00:00',
+    latitude: '28.647622',
+    longitude: '77.315809',
+    pollutant_id: 'CO',
+    pollutant_min: '34',
+    pollutant_max: '92',
+    pollutant_avg: '64',
+  },
+  {
+    country: 'India',
+    state: 'Delhi',
+    city: 'Delhi',
+    station: 'R K Puram, Delhi - DPCC',
+    last_update: '13-11-2026 08:00:00',
+    latitude: '28.563262',
+    longitude: '77.186937',
+    pollutant_id: 'PM2.5',
+    pollutant_min: '185',
+    pollutant_max: '295',
+    pollutant_avg: '248',
+  },
+  {
+    country: 'India',
+    state: 'Delhi',
+    city: 'Delhi',
+    station: 'R K Puram, Delhi - DPCC',
+    last_update: '13-11-2026 08:00:00',
+    latitude: '28.563262',
+    longitude: '77.186937',
+    pollutant_id: 'PM10',
+    pollutant_min: '212',
+    pollutant_max: '340',
+    pollutant_avg: '274',
+  },
+  {
+    country: 'India',
+    state: 'Delhi',
+    city: 'Delhi',
+    station: 'R K Puram, Delhi - DPCC',
+    last_update: '13-11-2026 08:00:00',
+    latitude: '28.563262',
+    longitude: '77.186937',
+    pollutant_id: 'OZONE',
+    pollutant_min: '18',
+    pollutant_max: '52',
+    pollutant_avg: '34',
+  },
+  {
+    country: 'India',
+    state: 'Delhi',
+    city: 'Delhi',
+    station: 'ITO, Delhi - CPCB',
+    last_update: '13-11-2026 08:00:00',
+    latitude: '28.628624',
+    longitude: '77.241060',
+    pollutant_id: 'PM2.5',
+    pollutant_min: '210',
+    pollutant_max: '332',
+    pollutant_avg: '286',
+  },
+  {
+    country: 'India',
+    state: 'Delhi',
+    city: 'Delhi',
+    station: 'ITO, Delhi - CPCB',
+    last_update: '13-11-2026 08:00:00',
+    latitude: '28.628624',
+    longitude: '77.241060',
+    pollutant_id: 'NO2',
+    pollutant_min: '74',
+    pollutant_max: '154',
+    pollutant_avg: '119',
+  },
+  {
+    country: 'India',
+    state: 'Delhi',
+    city: 'Delhi',
+    station: 'Punjabi Bagh, Delhi - DPCC',
+    last_update: '13-11-2026 08:00:00',
+    latitude: '28.674045',
+    longitude: '77.131023',
+    pollutant_id: 'PM2.5',
+    pollutant_min: 'NA',
+    pollutant_max: 'NA',
+    pollutant_avg: 'NA',
+  },
+  {
+    country: 'India',
+    state: 'Delhi',
+    city: 'Delhi',
+    station: 'Punjabi Bagh, Delhi - DPCC',
+    last_update: '13-11-2026 08:00:00',
+    latitude: '28.674045',
+    longitude: '77.131023',
+    pollutant_id: 'PM10',
+    pollutant_min: '264',
+    pollutant_max: '390',
+    pollutant_avg: '318',
+  },
+  {
+    country: 'India',
+    state: 'Delhi',
+    city: 'Delhi',
+    station: 'Dwarka-Sector 8, Delhi - DPCC',
+    last_update: '13-11-2026 05:00:00',
+    latitude: '28.571027',
+    longitude: '77.071900',
+    pollutant_id: 'PM2.5',
+    pollutant_min: '165',
+    pollutant_max: '240',
+    pollutant_avg: '198',
+  },
+];
+
+export const SAMPLE_GOOGLE_AQ_RESPONSE: GoogleAqResponse = {
+  dateTime: '2026-11-13T08:30:00Z',
+  regionCode: 'in',
+  indexes: [
+    {
+      code: 'uaqi',
+      displayName: 'Universal AQI',
+      aqi: 24,
+      aqiDisplay: '24',
+      category: 'Poor air quality',
+      dominantPollutant: 'pm25',
+    },
+    {
+      code: 'ind_cpcb',
+      displayName: 'NAQI (India)',
+      aqi: 342,
+      aqiDisplay: '342',
+      category: 'Very Poor',
+      dominantPollutant: 'pm25',
+    },
+  ],
+  pollutants: [
+    {
+      code: 'pm25',
+      displayName: 'PM2.5',
+      fullName: 'Fine particulate matter (<2.5µm)',
+      concentration: { value: 174.5, units: 'MICROGRAMS_PER_CUBIC_METER' },
+    },
+    {
+      code: 'pm10',
+      displayName: 'PM10',
+      fullName: 'Inhalable particulate matter (<10µm)',
+      concentration: { value: 298.2, units: 'MICROGRAMS_PER_CUBIC_METER' },
+    },
+    {
+      code: 'no2',
+      displayName: 'NO2',
+      fullName: 'Nitrogen dioxide',
+      concentration: { value: 64.1, units: 'PARTS_PER_BILLION' },
+    },
+    {
+      code: 'co',
+      displayName: 'CO',
+      fullName: 'Carbon monoxide',
+      concentration: { value: 1850, units: 'PARTS_PER_BILLION' },
+    },
+  ],
+  healthRecommendations: {
+    generalPopulation:
+      'Reduce prolonged or heavy exertion outdoors. Keep indoor air clean with closed windows.',
+    elderly:
+      'Stay indoors as much as possible and monitor respiratory symptoms closely.',
+    lungDiseasePopulation:
+      'Avoid all outdoor physical activity; keep rescue inhalers readily accessible.',
+    heartDiseasePopulation:
+      'Avoid strenuous outdoor exposure and watch for chest tightness or shortness of breath.',
+    children:
+      'Cancel outdoor physical education and recess; shift activities indoors.',
+  },
+};
+
+export const SAMPLE_MESSY_TABLE_TEXT = `Station_Name | Timestamp | PM2.5_Reading | PM10_Val | NO2 | CO | Note
+Ward-14 Bus Depot Junction, 13/11/2026 07:45 IST, 0.218 mg/m³, 384 µg/m³, 96 ug/m3, 2.4 mg/m³, Heavy diesel corridor
+Ward-19 Metro Construction Gate, 2026-11-13 08:10, 148 ug/m3, 468 µg/m³, NA, 1.1 mg/m³, Active excavation dust
+Ward-07 Govt School Campus, 13-Nov-26 08:05, 162 µg/m³, 215 ug/m3, 48 µg/m³, -, Morning assembly zone
+Ward-22 Industrial Ring Road, 2026-11-13T07:55:00Z, 9850 µg/m³, 410 µg/m³, 112 ug/m³, 3.8 mg/m³, Sensor optical chamber error?
+Ward-11 Lakeview Park, 09/11/2026 14:00, 64 ug/m³, null, 28 µg/m³, 0.7 mg/m³, Stale reading (4 days old)
+Ward-03 Vegetable Market, 13/11/2026 08:15, -14 µg/m³, 290 ug/m³, 71 ug/m³, 1.9 mg/m³, Negative PM2.5 calibration fault`;
